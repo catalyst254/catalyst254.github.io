@@ -1,49 +1,407 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Animated Border</title>
+    <title>Jaivac Fabricators: Beds</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
-        body, html {
-            height: 100%;
+        /* Import a modern font from Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            background-image: url(abou.png);
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        /* Updated header styles */
+        header {
+            background-image: linear-gradient(to right, #333, #555);
+            color: #fff;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 0.1em;
+        }
+
+        .logo {
+            width: 60px;
+            height: 60px;
+            margin-right: 10px;
+            border-radius: 50%;
+            background-color: #f9f9f9;
+        }
+
+        h1 {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+        }
+
+        h4 {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 400;
+        }
+
+        .text-container ul {
+            list-style: none;
+            display: flex;
             margin: 0;
             padding: 0;
         }
 
-        .container {
-            width: 100%;
-            height: 100%;
+        .text-container li {
+            margin-left: 20px;
+            display: flex;
+
+        }
+
+        .text-container a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
             position: relative;
         }
 
-        .rotating-line {
+        .text-container a::before {
+            content: "";
             position: absolute;
-            top: 0;
+            bottom: -2px;
             left: 0;
-            width: 100%;
-            height: 100%;
-            border-top: 2px solid #333; /* Border for top side */
-            border-right: 2px solid transparent; /* Border for right side */
-            border-bottom: 2px solid transparent; /* Border for bottom side */
-            border-left: 2px solid transparent; /* Border for left side */
-            animation: rotate 2s linear infinite; /* Animation for rotation */
-            box-sizing: border-box;
+            width: 0;
+            height: 2px;
+            background-color: #fff;
+            transition: width 0.3s;
         }
 
-        @keyframes rotate {
-            0% {
-                transform: rotate(0deg); /* Rotate from 0 degrees */
+        .text-container a:hover::before {
+            width: 100%;
+        }
+
+        .text-container a:hover {
+            color: #ffd700;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #333;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            border-radius: 5px;
+            padding: 10px;
+        }
+
+        .dropdown-content a {
+            color: #fff;
+            padding: 8px 12px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #555;
+            border-radius: 5px;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Updated footer styles */
+        footer {
+            background: linear-gradient(to right, #333, #555);
+            color: #fff;
+            text-align: center;
+            padding: 2em 0;
+            border-top: 2px solid #ccc;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+
+        .p {
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: #ffd700;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .p:hover {
+            color: #fff;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contact-info,
+        .quick-contact,
+        .important-links,
+        .social-links {
+            flex: 1;
+            padding: 1em;
+            text-align: left;
+            max-width: 300px;
+        }
+
+        .contact-info h3,
+        .quick-contact h3,
+        .important-links h3,
+        .social-links h3 {
+            font-weight: 600;
+            margin-bottom: 1em;
+        }
+
+        .contact-info ul,
+        .important-links ul,
+        .social-links ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .important-links li,
+        .social-links li {
+            margin-bottom: 0.5em;
+        }
+
+        .contact-info li {
+            margin-bottom: 0.5em;
+        }
+
+        .quick-contact label,
+        .quick-contact textarea,
+        .quick-contact input {
+            margin-bottom: 10px;
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .quick-contact button {
+            background-color: #ffd700;
+            color: #333;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+        }
+
+        .quick-contact button:hover {
+            background-color: #ccc;
+        }
+
+        .important-links a,
+        .social-links a {
+            text-decoration: none;
+            color: #fff;
+            transition: color 0.3s;
+        }
+
+        .important-links a:hover,
+        .social-links a:hover {
+            color: #ffd700;
+        }
+
+        .image-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .image-container img {
+            width: 300px;
+            margin: 10px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .image-container img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 10px;
             }
-            100% {
-                transform: rotate(360deg); /* Rotate to 360 degrees */
+
+            .logo-container {
+                margin-bottom: 10px;
+            }
+
+            .text-container ul {
+                flex-direction: column;
+            }
+
+            .text-container li {
+                margin-left: 0;
+                margin-bottom: 5px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .contact-info,
+            .quick-contact,
+            .important-links,
+            .social-links {
+                max-width: 100%;
+                text-align: center;
+                margin-bottom: 20px;
             }
         }
     </style>
 </head>
+
 <body>
-    <div class="container">
-        <div class="rotating-line"></div>
-    </div>
+    <header>
+        <div class="logo-container">
+            <img class="logo" src="logo.png" alt="Jaivac Fabricators Logo">
+            <div>
+                <h1>Jaivac Fabricators</h1>
+                <h4>Your trusted partner in welding</h4>
+            </div>
+        </div>
+        <nav class="text-container">
+            <ul>
+                <li><a href="juiva.html">Home</a></li>
+                <li><a href="about us.html">About Us</a></li>
+                <li><a href="ourservices.html">Our Services</a></li>
+                <li><a href="portifolio.html">Portfolio</a></li>
+                <li><a href="contact us.html">Contact Us</a></li>
+                <li class="dropdown">
+                    <a href="#">Our Products</a>
+                    <div class="dropdown-content">
+                        <a href="#">Tables</a>
+                        <a href="#">Chairs</a>
+                        <a href="#">Gates</a>
+                        <a href="beds.html">Beds</a>
+                        <a href="#">Stairs</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <div class="container">
+                <h2>Welcome to Our Beds Section</h2>
+                <p>At Jaivac Fabricators, we're dedicated to providing high-quality, durable, and stylish beds for residential and commercial use. Our beds are crafted with precision and expertise, ensuring both comfort and longevity.</p>
+            </div>
+            <div class="bed">
+                <h2>Why Choose Jaivac Fabricators Beds?</h2>
+                <ul>
+                    <li>Quality Craftsmanship: Each bed is meticulously crafted by our skilled welders and fabricators, ensuring superior quality and durability.</li>
+                    <li>Variety of Designs: We offer a wide range of bed designs to suit different preferences and needs. Whether you're looking for a modern, minimalist design or a more traditional style, we have something for everyone.</li>
+                    <li>Customization Options: At Jaivac Fabricators, we understand that every customer has unique requirements. That's why we offer customization options, allowing you to tailor your bed to your exact specifications.</li>
+                    <li>Durable Materials: Our beds are made from high-quality materials, including steel and other metals, ensuring sturdiness and reliability for years to come.</li>
+                    <li>Affordable Pricing: We believe that quality shouldn't come at a premium. That's why we offer competitive pricing on all our beds, making them accessible to a wide range of customers.</li>
+                </ul>
+            </div>
+            <div>
+                <h2>Explore Our Bed Collection</h2>
+                <p>Browse through our selection of beds below to find the perfect option for your home or business. From single beds to king-size frames, we have something to suit every need and budget.</p>
+            </div>
+            <div>
+                <h3><a href="contact us.html">Contact Us</a></h3>
+                <p>Ready to invest in a Jaivac Fabricators bed? Get in touch with us today to discuss your requirements and place your order. Our friendly team is here to assist you every step of the way.</p>
+            </div>
+        </section>
+        <div class="image-container">
+            <img src="sm.png.jpg" alt="Bed Image">
+            <img src="2in.png.jpg" alt="Bed Image">
+            <img src="flat.png.jpg" alt="Bed Image">
+            <img src="decker.png.jpg" alt="Bed Image">
+            <img src="bed.jpg" alt="Bed Image">
+        </div>
+    </main>
+
+    <footer>
+        <p class="p">Contact us today to discuss your welding and fabrication needs. We are here to turn your ideas into reality.</p>
+        <div class="footer-content">
+            <div class="contact-info">
+                <h3>Contact Us</h3>
+                <p>Are you looking for high-quality welders and fabricators for your project?</p>
+                <ul>
+                    <li><i class="fas fa-envelope"></i> Email: info@jaivacfabricators.com</li>
+                    <li><i class="fas fa-phone"></i> Phone: +(254) 110848885</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Address: Metal Street, Kiritiri</li>
+                </ul>
+            </div>
+            <div class="quick-contact">
+                <h3>Quick Contact</h3>
+                <form class="form" id="contactForm" onsubmit="return ValidateForm()">
+                    <label for="email">Your email:</label>
+                    <input type="email" id="email" name="user_email" required placeholder="example@domain.com">
+                    <label for="message">Message:</label>
+                    <textarea name="user_message" id="user_message" rows="4" required></textarea>
+                    <button type="submit" form="contactForm" onclick="SubmitForm()">Send Message</button>
+                </form>
+            </div>
+            <div class="important-links">
+                <h3>Important Links</h3>
+                <ul>
+                    <li><a href="beds.html">Beds</a></li>
+                    <li><a href="#">Doors</a></li>
+                    <li><a href="#">Gates</a></li>
+                    <li><a href="#">Chairs</a></li>
+                    <li><a href="#">Windows</a></li>
+                    <li><a href="#">Staircase</a></li>
+                    <li><a href="#">Curtain Rods</a></li>
+                </ul>
+            </div>
+            <div class="social-links">
+                <h3>Connect with Us</h3>
+                <ul>
+                    <li><a href="https://www.facebook.com/Brian paul Gito " target="_blank"><i class="fab fa-facebook"></i> Facebook</a></li>
+                    <li><a href="https://www.twitter.com/@julius29511" target="_blank"><i class="fab fa-twitter"></i> Twitter</a></li>
+                    <li><a href="#" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
+                    <li><a href="https://wa.me/+254783845747" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
 </body>
+
 </html>

@@ -1,339 +1,675 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brian Paul Gitonga</title>
+    <title>Jaivac Fabricators</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
-    body {
-        background-color: #000000;
-        background-image: linear-gradient(to bottom left, #15fa00 40.5%, transparent 20.5%, transparent), 
-                          linear-gradient(to top left, #15fa00 40.5%, transparent 20.5%, transparent);
-        background-size: 50% 50% 30%;
-        background-position: top left, bottom right;
-        margin: 0;
-        padding: 0;
-        font-family: Arial, sans-serif;
-        height: 100vh;
-        position: relative;
-        overflow: hidden;
-    }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ececec;
+            background-image: url(b.png);
+            background-size: cover;
+        }
 
-    
-    header {
-        background-color: #15fa00;
-        color: white;
-        font-family: 'Times New Roman', Times, serif;
-        font-weight: bold;
-        padding: 20px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        z-index: 1;
-        position: relative;
-    }
+        header {
+            background-color: #2c3e50;
+            color: gold;
+            padding: 20;
+            align-items: center;
+            display: flex;
+            justify-content: space-between;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
 
-    .profile {
-        border-radius: 50%;
-        width: 60px;
-        height: 60px;
-        margin-right: 10px;
-    }
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1px;
+            padding: 0.1em;
+        }
 
-    h1 {
-        margin: 0;
-        font-size: 24px;
-        font-family: 'Times New Roman', Times, serif;
-    }
+        .text-container li {
+            margin-left: 20px;
+            font-weight: bolder;
+            display: inline-block;
+            font-family: 'Times New Roman', Times, serif;
+            
+        }
 
-    nav {
-        padding: 10px;
-        text-align: left;
-    }
+        .text-container  a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
 
-    nav ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-    }
+        .text-container a::before {
+            content: "";
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #ffffff;
+            transition: width 0.3s;
+        }
+        .text-container a:hover::before {
+            width: 100%;
+        }
 
-    nav ul li {
-        display: inline;
-        margin-right: 10px;
-        position: relative;
-    }
+        .text-container a:hover {
+            color: #ffee00;
+        }
+        .logo {
+            width: 60px;
+            height: 60px;
+            margin-left: 10px;
+            margin-bottom: 0.005px;
+            border-radius: 50%;
+            background-color: #f9f9f9;
+        }
 
-    nav ul li a {
-        color: white;
-        text-decoration: none;
-        position: relative;
-    }
+        h1 {
+            margin: 0;
+            font-size: 24px; 
+            font-family: 'Times New Roman', Times, serif;
+            margin-left: 100px;
+        }
 
-    nav ul li a::after {
-        content: '';
-        position: absolute;
-        width: 100%;
-        height: 2px;
-        bottom: -5px;
-        left: 0;
-        background-color: transparent;
-        transition: background-color 0.3s ease;
-    }
+        .product-dropdown {
+            display: none;
+            position: absolute;
+            background-color: whitesmoke;
+            min-width: 160px;
+            z-index: 1;
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+        }
+        .dropdown {
+    display: inline-block;
+}
 
-    nav ul li a:hover::after {
-        background-color: #080e03;
-        color: red;
-    }
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #524040;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 10PX;
+}
 
-    p {
-        color: white;
-        text-align: left;
-        margin-top: 50px;
-    }
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
 
-    .home {
-        display: flex;
-        flex-direction: row;
-        align-items: flex-start;
-        justify-content: space-around;
-        padding: 20px;
-        z-index: 999;
-    }
+.dropdown-content a:hover {
+    background-color: #000000;
+    border-radius: 10px;
+}
 
-    .home .home-content {
-        display: inline-flex;;
-        flex-direction: column;
-        text-align: left;
-        padding: 20px;
-        color: #f5eeee;
-    }
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+        nav {
+            background-color: #001afffa;
+            color: #050505;
+            padding: 10px;
+            text-align: center;
+        }
 
-    .home-content h3 {
-        font-size: 2.2rem;
-        font-weight: 700;
-        line-height: 0.8em;
-        margin: 0 0 0.5rem 0;
-    }
-    section{
-        min-height: 100vh;
-        padding: 10rem 7% 2rem;
-    }
+        .slideshow-container {
+            max-width: 100%;
+            overflow: hidde;
+        }
 
-    .home-content h3 {
-        font-size: 2.2rem;
-        font-weight: 700;
-        line-height: 1em;
-        margin: 0.5rem 0;
-    }
+        .my-slides {
+            display: none;
+            position: relative;
+        }
 
-    .home-content p {
-        font-size: 1.2rem;
-        line-height: 1.3em;
-        margin-top: 1rem;
-    }
+        .my-slides img {
+            width: 10%;
+            height:50%;
+            border-radius: 50;
+            animation: slideshow 1s;
 
-    .social-media a{
-        display: inline-flex;
-        text-decoration: none;
-        align-items: center;
-        justify-content: center;
-        width: 2rem;
-        height: 2rem;
-        background-color: transparent;
-        border-radius: 50%;
-        box-shadow: 5px 5px 5px black;
-        margin: 0.5rem 0.5rem 1rem 2;
-        font-size: 1.5rem;
-        color: rgb(78, 247, 0);
-    }
+        }
 
-    .social-media a:hover {
-        box-shadow: 5px 5px 5px #f9f9ff;
-        transition: 0.5s ease;
-        background-color: #32fc00;
-        color: white;
-    }
-    button {
-        background-color: #1dfc00;
-        border-radius: 20px;
-        letter-spacing: 0.1rem;
-        font-size: 20px;
-        font-family: monospace, serif;
-        font-weight: bolder;
-        height: 40px;
-        border: none;
-        margin-top: 20px;
-    }
-    button a {
-        text-decoration: none;
-        color: rgb(253, 253, 253);
-    }
-    .proffessions-box {
-        width: 400px; 
-        height: 400px; 
-        border-radius: 50%; 
-        position: relative;
-        display: flex;
-        margin-right: 60px;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        animation: rotate 12s ease-in-out infinite;
-    }
+        .text-div {
+            position: absolute;
+            font-weight: bolder;
+            bottom: 60%;
+            left: 30%;
+            transform: translate(-50%, 50%);
+            text-align: center;
+            background-color: rgba(30, 26, 68, 0.8);
+            padding: 20px;
+            border-radius: 8px;
+            font-size: 18px;
+            width: 80%;
+            max-width: 500px;
+        }
 
-@keyframes rotate {
-    0%,
-    100%{
-        transform: rotate(0deg);
+        .content {
+            color: #fff;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: underline;
+            animation: fadeIn 2s ease-in-out forwards;
+        }
+        .description {
+            font-size: 20px;
+            opacity: 0;
+            font-weight: lighter;
+            font-family: zombie;
+            color: rgb(255, 215, 0);
+            animation: slideIn 2s ease-in-out forwards;
+        }
+        .button {
+            text-decoration: none;
+            margin-left: 120px;
+            background-color: #fffef9;
+            font-weight: bolder;
+            color: #050505;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #fffb00;
+            box-shadow: 5px 5px 5px black;
+        }
+
+        @keyframes slideshow {
+    0% {
+        opacity: 0;
+        transform: translateX(50px);
     }
-    25%,
-    45% {
-        transform: rotate(90deg);
+    25% {
+        opacity: 1;
+        transform: translateY(0); 
     }
-    50%,
+    75% {
+        opacity: 1;
+        transform: translateX(0); 
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+}
+        @keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-50px) scale(0.5);
+    }
     70% {
-        transform: rotate(180deg);
+        opacity: 1;
+        transform: translateY(10px) scale(1.1);
     }
-    75%,
-    95% {
-        transform: rotate(270deg);
-    }
-    100%{
-        transform: rotate(360deg);
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
     }
 }
 
-.proffession {
-    position: absolute;
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-40px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        section {
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 20px 0;
+        }
+
+        section h2 {
+            color: #0a0a0a;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        section p {
+            color: #555;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        section ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        section li {
+            margin-bottom: 10px;
+        }
+
+        footer {
+    background: black;
+    color: #ffe600;
     text-align: center;
+    padding: 1em 0;
+    border-top: 2px solid #555;
+    border-radius: 10px;
+    font-weight: bold;
+}
+.p {
+            font-size: large;
+            font-weight: lighter;
+            color: rgb(9, 235, 243);
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+        .p:hover{
+            color: gold;
+        }
+
+.footer-content {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
-.proffession h4 {
-    margin-bottom: 0;
-    font-weight: 500;
-    position: relative;
-    color: #1dfc00;
-    line-height: 1;
-}
-.proffessions i {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 2rem;
-}
-.proffessions-container::overlay {
-    position: relative;
-    top: 0;
-    left: 0;
-    mix-blend-mode: difference;
-   
-}
-
-.proffession:nth-child(1) {
-    transform: rotate(0deg) translateX(-180px) rotate(0deg);
-}
-
-.proffession:nth-child(2) {
-    transform: rotate(90deg) translateX(-180px) rotate(0deg);
-}
-
-.proffession:nth-child(3) {
-    transform: rotate(180deg) translateX(-180px) rotate(0deg);
-}
-
-.proffession:nth-child(4) {
-    transform: rotate(270deg) translateX(-180px) rotate(0deg);
-}
-.circle {
-    height: 350px;
-    width: 350px;
-    border: 4px solid #15fa00;
-    border-radius: 50%;
-    box-decoration-break: clone;
-}
-.home-img img{
-    position: absolute;
-    bottom: 0;
-    right: -10px;
-    width: 400px;
-    height: 400px;
-    overflow: hidden;
-    pointer-events: none;
-    margin-bottom: 100px;
+@media screen {
+    /* For mobile phones: */
+    [class*="col-"] {
+        width: 100%;
+    }
+    
 }
 
 
+.contact-info,
+.quick-contact,
+.important-links,
+.social-links {
+    flex: 1;
+    padding: 0.5em;
+    text-align: center;
+    max-width: 300px;
+}
+
+.contact-info ul,
+.important-links ul,
+.social-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.important-links li,
+.social-links li {
+    margin-bottom: 10px;
+}
+
+
+.contact-info li {
+    margin-bottom: 10px;
+    display: flex;
+}
+
+.quick-contact label,
+.quick-contact textarea,
+.quick-contact input {
+    margin-bottom: 10px;
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+.quick-contact button {
+    background-color: #fa04e5;
+    color: #fff;
+    border: none;
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.quick-contact button:hover {
+    background-color: #555;
+    box-shadow: 5px 5px 5px #f70505;
+}
+
+.important-links a,
+.social-links a {
+    text-decoration: none;
+    color: #fff;
+    transition: color 0.3s;
+}
+
+.important-links a:hover,
+.social-links a:hover {
+    color: #555;
+}
+
+
+        @keyframes slideshowIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+        .box{
+            display: flex;
+        }
+        .purpose{
+            text-align: center;
+            align-items: center;
+            padding: 20px;
+            margin-bottom: 20px;
+            margin-right: 20px;
+            justify-content: space-between;
+            display: inline-table;
+            width: 420px;
+            height: 80%;
+            box-sizing: border-box;
+            font-weight: bolder;
+            color: #050505;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+        .purpose:hover{
+            transform: scale(1.005);
+            background-color: #ffd504;
+            box-shadow: 5px 5px 5px 5px black;
+            font-weight: bold;
+        }
+        .purpose img {
+            border: 5px solid #fff;
+            border-radius: 20px;
+            width: 100%;
+            height: 70%;
+            margin-bottom: 15px;
+        }
+        .learn-more{
+            text-decoration: none;
+            margin-left: 120px;
+            background-color: #ffd504;
+            font-weight: bolder;
+            color: #050505;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+        .learn-more:hover{
+            transform: scale(1.005);
+            background-color: #000000;
+            color: #ffffff;
+            box-shadow: 5px 5px 5px 5px black;
+        }
 
     </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let slideIndex = 0;
+            showSlides();
+
+            function showSlides() {
+                let i;
+                const slides = document.getElementsByClassName("my-slides");
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+                slideIndex++;
+                if (slideIndex > slides.length) {
+                    slideIndex = 1;
+                }
+                slides[slideIndex - 1].style.display = "block";
+                setTimeout(showSlides, 7000);
+            }
+
+            const productLink = document.getElementById("product-link");
+            const productDropdown = document.getElementById("product-dropdown");
+
+            productLink.addEventListener("click", function (e) {
+                e.preventDefault(); // Prevents the default behavior of the anchor tag
+                if (productDropdown.style.display === "block") {
+                    productDropdown.style.display = "none";
+                } else {
+                    closeAllLists();
+                    productDropdown.style.display = "block";
+                }
+            });
+
+            function closeAllLists() {
+                const dropdowns = document.getElementsByClassName("product-dropdown");
+                for (let i = 0; i < dropdowns.length; i++) {
+                    dropdowns[i].style.display = "none";
+                }
+            }
+
+            document.addEventListener("click", function (event) {
+                if (event.target !== productLink && !event.target.closest(".product-dropdown")) {
+                    closeAllLists();
+                }
+            });
+        });
+    </script>
+    
 </head>
+
+<body>
+
     <header>
-        <img class="profile" src="profile.png.jpg" alt="Profile Picture">
-        <h1>Portfolio</h1>
-        <nav>
+        <div class="logo-container">
+            <img class="logo" src="logo.png">
+        <h1>Jaivac Fabricators</h1>
+        </div>
+        <div class="text-container">
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="education.html">Education</a></li>
-                <li><a href="skills.html">Skills</a></li>
-                <li><a href="#">Portfolio</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </nav>
+            <li><a href="http://127.0.0.1:5501/index.html">Home</a></li>
+            <li><a href="http://127.0.0.1:5501/about%20us.html">About Us</a></li>
+            <li><a href="http://127.0.0.1:5501/ourservices.html">Our Services</a></li>
+            <li><a href="http://127.0.0.1:5501/portifolio.html">Portfolio</a></li>
+            <li><a href="http://127.0.0.1:5501/contact%20us.html">Contact Us</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropbtn">Our Products</a>
+                <div class="dropdown-content">
+                    <a href="http://127.0.0.1:5501/doors.html">Doors</a>
+                    <a href="http://127.0.0.1:5501/windows.html">Windows</a>
+                    <a href="http://127.0.0.1:5501/gates.html">Gates</a>
+                    <a href="http://127.0.0.1:5501/beds.html">Beds</a>
+                    <a href="staircase.html">Staircase</a>
+                    <a href="curtain.html">Curtain Rod</a>
+                    <a href="http://127.0.0.1:5501/chairs.html">Chairs</a>
+                </div>
+            </li>
+           </ul>
+            
+        </div>
     </header>
-    <body>
-        <!-- home section left design-->
-    <section class="home" id="home">
-        <div class="home-content">
-            <h3>Hello, I'm </h3>
-            <h2 class="heading" style="color: #724b4b;"><span>BrianPaul Gitonga</span></h2>
-            <h3>And I'm a <span class="multiple-text"></span></h3>
 
-            <div class="social-media">
-                <a href="https://www.facebook.com/Prince Jeddie " target="_blank"><i class="fab fa-facebook"></i> </a>
-                <a href="https://www.twitter.com/@julius29511" target="_blank"><i class="fab fa-twitter"></i> </a>
-                <a href="#" target="_blank"><i class="fab fa-instagram"></i> </a>
-                <a href="https://wa.me/+254704234834" target="_blank"><i class="fab fa-whatsapp"></i> </a><br>
-            </div>
-            <div class="btn">
-            <button><a href="#">Download CV</a></button>
+    <nav>
+        
+    </nav>
+    <div class="slideshow-container">
+        <div class="my-slides slideOverVertical">
+            <img src="my.jpg" alt="my Photo" style="width:100%">
+            <div class="text-div">
+                <div class="content">
+                    <h2>Welcome to Jaivac</h2>
+                </div>
+                <p class="description">
+                    Crafting metal marvels. 
+                    Welding excellence meets innovation. 
+                    Explore artistry, ignite possibilities. 
+                    Your vision, our precision.
+                </p>
+            <button class="button"><a href="about us.html">More About us</a></button>
+                
         </div>
-        </div>
-        <!-- home section right design-->
-
-        <div class="proffessions-container::overlay">
-"
-            <div class="proffessions-box">
-                <div class="proffession">
-                    <i style="color: #1dfc00;" class="fas fa-code"></i>
-                    <h4> Web Developer</h4>
-                </div>
-                <div class="proffession">
-                    <i style="color: #1dfc00;" class="fas fa-laptop-code"></i>
-                    <h4>programmer</h4>
-                </div>
-                <div class="proffession">
-                    <i style="color: #1dfc00;" class="fas fa-palette"></i>
-                    <h4>graphic designer</h4>
-                </div>
-                <div class="proffession">
-                    <i style="color: #1dfc00;" class="fas fa-camera"></i>
-                    <h4>Photographer </h4>
-                </div>
-                <div class="circle"></div>
-            </div>
-            <div class="overlay">
-                <div class="home-img">
-                    <img src="olio.png.png" alt="">
-                </div>
+    </div>
+    
+        <div class="slideshow-container">
+            <div class="my-slides slideOverVertical">
+                <img src="purpose.png" alt="my Photo" style="width:100%">
+                <div class="text-div">
+                    <div class="content">
+                        <h2>Quality Products & Services</h2>
+                    </div>
+                <p class="description">
+                Juivac Fabricators: trusted partner for top-notch welding solutions. Committed to quality, skilled team ensures highest standards. Experience excellence with quality guarantee.
+                </p>
             </div>
         </div>
+        
+        <div class="slideshow-container">
+            <div class="my-slides">
+                <img src="atwork.jpg" alt="At work Photo" style="width:100%">
+                <div class="text-div">
+                    <div class="content">
+                        <h2>Redefining Fabrication Excellence</h2></div>
+                    <div class="description">
+                        <p>Crafting metal marvels. Welding excellence meets innovation.
+                             Explore artistry, ignite possibilities. Your vision, our precision.</p>
+                    </div>
+                        <button class="button"><a href="contact us.html">Contact</a></button>
+                       </div>
+            </div>
         </div>
+        
+        <div class="slideshow-container">
+            <div class="my-slides ">
+                <img src="sit.png" alt="Single Photo" style="width:100%">
+                <div class="text-div">
+                    <div class="content">
+                        <h2>Sculpting Simplicity, Crafting Excellence</h2>
+                    </div>
+                    <div class="description">
+                        <p>Jaivac Fabricators redefines fabrication. Simplifying needs, turning complexity into elegance. Bringing visions to life with precision and ease. Making fabrication simple, ensuring seamless journey and product.</p>
+                       </div>
+            </div>
+        </div>
+        
+        <div class="slideshow-container ">
+            <div class="my-slides ">
+                <img src="dining.jpg" alt="Dining Photo" style="width:100%">
+                <div class="text-div">
+                    <div class="content">
+                        <h2>Unveiling Endless Possibilities</h2></div>
+                        <div class="description">
+                        <p>Jaivac Fabricators: where welds are artistry. Creativity and precision converge to craft metal marvels. Committed to excellence, opening doors to endless possibilities. Redefining fabrication where innovation knows no bounds.</p>
+                       </div>
+                    </div>
+            </div>
+        </div>
+        <footer class="footer-1">
+            <p>Are you looking for high quality welders <br>and fabricators for your project ?</p>
+        </footer>
+    <section id="services" class="services">
+        <h2>Our Services</h2>
+            <p>Jaivac Fabricators provides a range of welding services to meet your industrial needs. 
+            Our skilled team ensures top-notch quality and precision in every project.
+            </p>
+        <ul>
+            <li>Structural Welding</li>
+            <li>Custom Fabrication</li>
+            <li>Pipe Welding</li>
+            <li>Welding Repairs</li>
+        </ul>
+        <a href="ourservices.html" class="learn-more">Learn More</a>
     </section>
+<div class="box">
+    <section  class="purpose">
+        <img  src="back.png" alt="Metal Beam Image"><br>
+        <h2>Elevating Welding Excellence</h2>
+        <p>Discover excellence in welding and fabrication with Jaivac Fabricators. 
+            Our commitment to precision, innovation, and quality craftsmanship ensures unparalleled solutions for your unique needs.
+            Trust us for superior metalwork that stands the test of time."</p>
+    </section>
+
+    <section class="purpose">
+        <img src="purpose.png" alt="Our purpose photo">
+        <h2>OUR PURPOSE</h2>
+        <p>We exist to be the driving force behind innovation in the welding industry, pushing the boundaries of what is possible. Our purpose is to bring forth excellence in craftsmanship, offering tailored solutions that meet and exceed the unique needs of our clients.</p>
+    </section>
+
+    <section class="purpose">
+        <img src="choose.png" alt="Why choose us photo">
+        <h2>Why choose us !</h2>
+        <p>Choose Jaivac Fabricators for Unmatched Expertise, Customized Excellence, and Innovative Solutions. 
+            We deliver quality with a commitment to your unique vision. 
+            Your satisfaction is our priority, and our seasoned team ensures timely, precise, and creative solutions.
+            Elevate your projects with Jaivac - Where Craftsmanship Meets Innovation.
+        </p>
+    </section>
+</div>
+    <footer>
+        <p class="p">Contact us today to discuss your welding and fabrication needs. We are here to turn your ideas into reality.</p>
+        <div class="footer-content">
+            <div class="contact-info">
+                <h3>Contact Us</h3>
+                <p>Are you looking for high-quality welders and fabricators for your project?</p>
+                <ul>
+                    <li><i class="fas fa-envelope"></i> Email: info@jaivacfabricators.com</li>
+                    <li><i class="fas fa-phone"></i> Phone: +(254) 110848885</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Address: Metal Street, Kiritiri</li>
+                </ul>
+            </div>
+    
+            <div class="quick-contact">
+                <h3>Quick Contact</h3>
+                <form class="form" id="contactForm" action="process_form.php" method="post" onsubmit="return ValidateForm()">
+                    <label for="email">Your email:</label>
+                    <input type="email" id="email" name="user_email" required placeholder="example@domain.com">
+                    <label for="message">Message:</label>
+                    <textarea name="user_message" id="user_message" rows="4" required></textarea>
+                    <button type="submit" form="contactForm" onclick="SubmitForm()">Send Message</button>
+                </form>
+            </div>
+            
+    
+        <div class="footer-content">
+        <div class="important-links">
+            <h3>Important Links</h3>
+            <ul>
+                <li><a href="http://127.0.0.1:5501/beds.html">Beds</a></li>
+                <li><a href="http://127.0.0.1:5501/doors.html">Doors</a></li>
+                <li><a href="http://127.0.0.1:5501/gates.html">Gates</a></li>
+                <li><a href="http://127.0.0.1:5501/chairs.html">Chairs</a></li>
+                <li><a href="http://127.0.0.1:5501/windows.html">Windows</a></li>
+                <li><a href="staircase.html">Staircase</a></li>
+                <li><a href="curtain.html">Curtain Rods</a></li>
+            </ul>
+        </div>
+    
+        <div class="social-links">
+            <h3>Connect with Us</h3>
+            <ul>
+               <a href="https://www.facebook.com/Brian paul Gito " target="_blank"><i class="fab fa-facebook"></i></a>facebook</li>
+                <li><a href="https://www.twitter.com/@julius29511" target="_blank"><i class="fab fa-twitter"></i> </a>twitter</li>
+                <li><a href="#" target="_blank"><i class="fab fa-instagram"></i> </a>instagram</li>
+                <li><a href="https://wa.me/+254783845747" target="_blank"><i class="fab fa-whatsapp"></i> </a>WhatsApp</li>
+            </ul>
+        </div>
+    </div>
+    </footer>
+    
+
 </body>
+
 </html>

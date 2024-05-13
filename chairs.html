@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jaivac Fabricators: Chairs</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #f4f4f4, #dcdcdc);
+            color: #333;
+            background-image: url(abou.png);
+            background-attachment: fixed; 
+        }
+
+        header {
+            background-color: #2c3e50;
+            align-items: center;
+            display: flex;
+            justify-content: space-between;
+            position: ;
+            z-index: 1000; 
+            position: fixed;
+            width: 100%;
+            top: 0;
+        }
+
+        section{
+            padding-top: 100px;
+        }
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1px;
+            padding: 0.1em;
+        }
+
+        .text-container li {
+            margin-left: 20px;
+            font-weight: bolder;
+            display: inline-block;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .text-container  a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .text-container a::before {
+            content: "";
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #fff;
+            transition: width 0.3s;
+        }
+        .text-container a:hover::before {
+            width: 100%;
+        }
+
+        .text-container a:hover {
+            color: #ffd700;
+        }
+        .logo {
+            width: 60px;
+            height: 60px;
+            margin-left: 10px;
+            margin-bottom: 0.005px;
+            border-radius: 50%;
+            background-color: #f9f9f9;
+        }
+
+        h1 {
+            margin: 0;
+            margin-left: 100px;
+            font-family: 'Times New Roman', Times, serif;
+            color: #ffd700;
+        }
+        .dropdown {
+        display: inline-block;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #5f4848;
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+        z-index: 1;
+        border-radius: 10px;
+    }
+
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+    }
+
+    .dropdown-content a:hover {
+        background-color: #0c0c0c;
+        border-radius: 10px;
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+        h2, h3 {
+            margin-bottom: 10px;
+            color: #0038f0; /* Update font color */
+            font-family: 'Arial', sans-serif;
+            align-items: center;
+            text-align: center;
+        }
+
+        p {
+            margin: 10px 0;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-weight: bold;
+            text-align: center;
+        }
+        .chair {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: transparent;
+            padding: 20px;
+            border-radius: 10px;
+            width: 500px;
+            box-shadow: 5px 2px 5px rgba(0, 26, 255, 0.3);
+            text-align: center;
+            margin: 0 auto;
+            font-weight: bolder;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .chair ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .chair li {
+            margin-bottom: 10px;
+            font-size: 16px;
+            line-height: 1;
+            align-items: center;
+            display: flex;
+        }
+
+        .chair li:before {
+            content: "\2713";
+            color: #0026ff; 
+            margin-right: 10px;
+        }
+
+        .icon {
+            display: flex;
+            justify-content: center; 
+            align-items: center; 
+        }
+        .icon img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .icon img:hover {
+            transform: scale(1.1); 
+            box-shadow: 8px 8px 8px #1c03ff; 
+            background-color: #ffd700;
+            
+        }
+
+        footer {
+    background: black;
+    color: #ffe600;
+    text-align: center;
+    padding: 1em 0;
+    border-top: 2px solid #555;
+    border-radius: 10px;
+    font-weight: bold;
+}
+.p {
+            font-size: large;
+            font-weight: lighter;
+            color: rgb(9, 235, 243);
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+        .p:hover{
+            color: gold;
+        }
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+@media screen {
+    /* For mobile phones: */
+    [class*="col-"] {
+        width: 100%;
+    }
+    
+}
+
+
+.contact-info,
+.quick-contact,
+.important-links,
+.social-links {
+    flex: 1;
+    padding: 0.5em;
+    text-align: center;
+    max-width: 300px;
+}
+
+.contact-info ul,
+.important-links ul,
+.social-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.important-links li,
+.social-links li {
+    margin-bottom: 10px;
+}
+
+
+.contact-info li {
+    margin-bottom: 10px;
+    display: flex;
+}
+
+.quick-contact label,
+.quick-contact textarea,
+.quick-contact input {
+    margin-bottom: 10px;
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+.quick-contact button {
+    background-color: #fa04e5;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.quick-contact button:hover {
+    background-color: #555;
+}
+
+.important-links a,
+.social-links a {
+    text-decoration: none;
+    color: #fff;
+    transition: color 0.3s;
+    display: flex;
+    margin-left: 20px;
+}
+
+.important-links a:hover,
+.social-links a:hover {
+    color: #555;
+}
+
+        .image-container img {
+            width: 300px;
+            margin: 10px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .image-container img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+        }
+        
+        
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo-container">
+            <img class="logo" src="logo.png">
+        <h1>Jaivac Fabricators</h1>
+        </div>
+        <div class="text-container">
+            <ul>
+                <li><a href="http://127.0.0.1:5501/index.html">Home</a></li>
+                <li><a href="http://127.0.0.1:5501/about%20us.html">About Us</a></li>
+                <li><a href="http://127.0.0.1:5501/ourservices.html">Our Services</a></li>
+                <li><a href="http://127.0.0.1:5501/portifolio.html">Portfolio</a></li>
+                <li><a href="http://127.0.0.1:5501/contact%20us.html">Contact Us</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Our Products</a>
+                    <div class="dropdown-content">
+                        <a href="http://127.0.0.1:5501/doors.html">Doors</a>
+                        <a href="http://127.0.0.1:5501/windows.html">Windows</a>
+                        <a href="http://127.0.0.1:5501/gates.html">Gates</a>
+                        <a href="http://127.0.0.1:5501/beds.html">Beds</a>
+                        <a href="staircase.html">Staircase</a>
+                        <a href="curtain.html">Curtain Rod</a>
+                        <a href="http://127.0.0.1:5501/chairs.html">Chairs</a>
+                    </div>
+                </li>
+               </ul>
+            
+        </div>
+        </div>
+    </header>
+    <section>
+        <div class="container">
+            <h1 style="text-align: center;"><u>Our Chairs</u></h1>
+            <h2>Chairs Collection</h2>
+            <p>Explore our range of premium chairs, expertly crafted for comfort, style, and durability to enhance your living or working space.</p>
+        </div>
+        <h2>Why Choose Our Chairs?</h2>
+        <div class="chair">
+            <ul>
+                <li>Comfortable and ergonomic design</li>
+                <li>High-quality materials for durability</li>
+                <li>Stylish designs to complement any space</li>
+                <li>Customization options available</li>
+                <li>Affordable pricing for every budget</li>
+            </ul>
+        </div>
+        <div>
+            <h2>Contact Us</h2>
+            <p>Ready to order? Get in touch to discuss your chair requirements and place your order. Our team is here to assist you.</p>
+            <p>Click the icon below:</p>
+            <div class="icon">
+                <a href="contact us.html"><img src="cal.png" alt=""></a>
+            </div>
+        </div>
+    </section>
+    <div class="image-container">
+        <img src="chair1.jpg">
+        <img src="chair2.jpg">
+        <img src="chair3.jpg">
+        <img src="chair4.jpg">
+        <img src="chair5.jpg">
+        <img src="chair6.jpg">
+
+    </div>
+
+    </div>
+    <footer>
+        <p class="p">Contact us today to discuss your welding and fabrication needs. We are here to turn your ideas into reality.</p>
+        <div class="footer-content">
+            <div class="contact-info">
+                <h3>Contact Us</h3>
+                <p>Are you looking for high-quality welders and fabricators for your project?</p>
+                <ul>
+                    <li><i class="fas fa-envelope"></i> Email: info@jaivacfabricators.com</li>
+                    <li><i class="fas fa-phone"></i> Phone: +(254) 110848885</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Address: Metal Street, Kiritiri</li>
+                </ul>
+            </div>
+    
+            <div class="quick-contact">
+                <h3>Quick Contact</h3>
+                <form class="form" id="contactForm" onsubmit="return ValidateForm()">
+                    <label for="email">Your email:</label>
+                    <input type="email" id="email" name="user_email" required placeholder="example@domain.com">
+                    <label for="message">Message:</label>
+                    <textarea name="user_message" id="user_message" rows="4" required></textarea>
+                    <button type="submit" form="contactForm" onclick="SubmitForm()">Send Message</button>
+                </form>
+            </div>
+            
+    
+        <div class="footer-content">
+        <div class="important-links">
+            <h3>Important Links</h3>
+            <ul>
+                <li><a href="http://127.0.0.1:5501/beds.html">Beds</a></li>
+                <li><a href="http://127.0.0.1:5501/doors.html">Doors</a></li>
+                <li><a href="http://127.0.0.1:5501/gates.html">Gates</a></li>
+                <li><a href="http://127.0.0.1:5501/chairs.html">Chairs</a></li>
+                <li><a href="http://127.0.0.1:5501/windows.html">Windows</a></li>
+                <li><a href="staircase.html">Staircase</a></li>
+                <li><a href="curtain.html">Curtain Rods</a></li>
+            </ul>
+        </div>
+    
+        <div class="social-links">
+            <h3>Connect with Us</h3>
+            <ul>
+                <li><a href="https://www.facebook.com/Brian paul Gito " target="_blank"><i class="fab fa-facebook"></i> Facebook</a></li>
+                <li><a href="https://www.twitter.com/@julius29511" target="_blank"><i class="fab fa-twitter"></i> Twitter</a></li>
+                <li><a href="#" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
+                <li><a href="https://wa.me/+254783845747" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
+            </ul>
+        </div>
+    </div>
+    </footer>
+</body>
+
+</html>
