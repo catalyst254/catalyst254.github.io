@@ -6,423 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jaivac Fabricators</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #ececec;
-            background-image: url(b.png);
-            background-size: cover;
-        }
-
-        header {
-            background-color: #2c3e50;
-            color: gold;
-            padding: 20;
-            align-items: center;
-            display: flex;
-            justify-content: space-between;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-        }
-
-        .logo-container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 1px;
-            padding: 0.1em;
-        }
-
-        .text-container li {
-            margin-left: 20px;
-            font-weight: bolder;
-            display: inline-block;
-            font-family: 'Times New Roman', Times, serif;
-            
-        }
-
-        .text-container  a {
-            color: #ffffff;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-            position: relative;
-        }
-
-        .text-container a::before {
-            content: "";
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: #ffffff;
-            transition: width 0.3s;
-        }
-        .text-container a:hover::before {
-            width: 100%;
-        }
-
-        .text-container a:hover {
-            color: #ffee00;
-        }
-        .logo {
-            width: 60px;
-            height: 60px;
-            margin-left: 10px;
-            margin-bottom: 0.005px;
-            border-radius: 50%;
-            background-color: #f9f9f9;
-        }
-
-        h1 {
-            margin: 0;
-            font-size: 24px; 
-            font-family: 'Times New Roman', Times, serif;
-            margin-left: 100px;
-        }
-
-        .product-dropdown {
-            display: none;
-            position: absolute;
-            background-color: whitesmoke;
-            min-width: 160px;
-            z-index: 1;
-            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-            border-radius: 5px;
-        }
-        .dropdown {
-    display: inline-block;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #524040;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-    z-index: 1;
-    border-radius: 10PX;
-}
-
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
-}
-
-.dropdown-content a:hover {
-    background-color: #000000;
-    border-radius: 10px;
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-        nav {
-            background-color: #001afffa;
-            color: #050505;
-            padding: 10px;
-            text-align: center;
-        }
-
-        .slideshow-container {
-            max-width: 100%;
-            overflow: hidde;
-        }
-
-        .my-slides {
-            display: none;
-            position: relative;
-        }
-
-        .my-slides img {
-            width: 10%;
-            height:50%;
-            border-radius: 50;
-            animation: slideshow 1s;
-
-        }
-
-        .text-div {
-            position: absolute;
-            font-weight: bolder;
-            bottom: 60%;
-            left: 30%;
-            transform: translate(-50%, 50%);
-            text-align: center;
-            background-color: rgba(30, 26, 68, 0.8);
-            padding: 20px;
-            border-radius: 8px;
-            font-size: 18px;
-            width: 80%;
-            max-width: 500px;
-        }
-
-        .content {
-            color: #fff;
-            font-family: 'Times New Roman', Times, serif;
-            font-size: 24px;
-            font-weight: bold;
-            text-decoration: underline;
-            animation: fadeIn 2s ease-in-out forwards;
-        }
-        .description {
-            font-size: 20px;
-            opacity: 0;
-            font-weight: lighter;
-            font-family: zombie;
-            color: rgb(255, 215, 0);
-            animation: slideIn 2s ease-in-out forwards;
-        }
-        .button {
-            text-decoration: none;
-            margin-left: 120px;
-            background-color: #fffef9;
-            font-weight: bolder;
-            color: #050505;
-            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-            transition: background-color 0.3s;
-        }
-
-        .button:hover {
-            background-color: #fffb00;
-            box-shadow: 5px 5px 5px black;
-        }
-
-        @keyframes slideshow {
-    0% {
-        opacity: 0;
-        transform: translateX(50px);
-    }
-    25% {
-        opacity: 1;
-        transform: translateY(0); 
-    }
-    75% {
-        opacity: 1;
-        transform: translateX(0); 
-    }
-    100% {
-        opacity: 0;
-        transform: translateY(-50px);
-    }
-}
-        @keyframes fadeIn {
-    0% {
-        opacity: 0;
-        transform: translateY(-50px) scale(0.5);
-    }
-    70% {
-        opacity: 1;
-        transform: translateY(10px) scale(1.1);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
-}
-
-
-        @keyframes slideIn {
-            from {
-                transform: translateY(-40px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-        section {
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin: 20px 0;
-        }
-
-        section h2 {
-            color: #0a0a0a;
-            font-size: 24px;
-            margin-bottom: 15px;
-        }
-
-        section p {
-            color: #555;
-            font-size: 16px;
-            line-height: 1.5;
-        }
-
-        section ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        section li {
-            margin-bottom: 10px;
-        }
-
-        footer {
-    background: black;
-    color: #ffe600;
-    text-align: center;
-    padding: 1em 0;
-    border-top: 2px solid #555;
-    border-radius: 10px;
-    font-weight: bold;
-}
-.p {
-            font-size: large;
-            font-weight: lighter;
-            color: rgb(9, 235, 243);
-            font-family: Georgia, 'Times New Roman', Times, serif;
-        }
-        .p:hover{
-            color: gold;
-        }
-
-.footer-content {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-}
-@media screen {
-    /* For mobile phones: */
-    [class*="col-"] {
-        width: 100%;
-    }
-    
-}
-
-
-.contact-info,
-.quick-contact,
-.important-links,
-.social-links {
-    flex: 1;
-    padding: 0.5em;
-    text-align: center;
-    max-width: 300px;
-}
-
-.contact-info ul,
-.important-links ul,
-.social-links ul {
-    list-style: none;
-    padding: 0;
-}
-
-.important-links li,
-.social-links li {
-    margin-bottom: 10px;
-}
-
-
-.contact-info li {
-    margin-bottom: 10px;
-    display: flex;
-}
-
-.quick-contact label,
-.quick-contact textarea,
-.quick-contact input {
-    margin-bottom: 10px;
-    width: 100%;
-    padding: 8px;
-    box-sizing: border-box;
-}
-
-.quick-contact button {
-    background-color: #fa04e5;
-    color: #fff;
-    border: none;
-    padding: 5px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.quick-contact button:hover {
-    background-color: #555;
-    box-shadow: 5px 5px 5px #f70505;
-}
-
-.important-links a,
-.social-links a {
-    text-decoration: none;
-    color: #fff;
-    transition: color 0.3s;
-}
-
-.important-links a:hover,
-.social-links a:hover {
-    color: #555;
-}
-
-
-        @keyframes slideshowIn {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
-        .box{
-            display: flex;
-        }
-        .purpose{
-            text-align: center;
-            align-items: center;
-            padding: 20px;
-            margin-bottom: 20px;
-            margin-right: 20px;
-            justify-content: space-between;
-            display: inline-table;
-            width: 420px;
-            height: 80%;
-            box-sizing: border-box;
-            font-weight: bolder;
-            color: #050505;
-            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-        }
-        .purpose:hover{
-            transform: scale(1.005);
-            background-color: #ffd504;
-            box-shadow: 5px 5px 5px 5px black;
-            font-weight: bold;
-        }
-        .purpose img {
-            border: 5px solid #fff;
-            border-radius: 20px;
-            width: 100%;
-            height: 70%;
-            margin-bottom: 15px;
-        }
-        .learn-more{
-            text-decoration: none;
-            margin-left: 120px;
-            background-color: #ffd504;
-            font-weight: bolder;
-            color: #050505;
-            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-        }
-        .learn-more:hover{
-            transform: scale(1.005);
-            background-color: #000000;
-            color: #ffffff;
-            box-shadow: 5px 5px 5px 5px black;
-        }
-
-    </style>
+    <link rel="stylesheet" href="jaivac.css">
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             let slideIndex = 0;
@@ -468,45 +52,86 @@
                 }
             });
         });
+
     </script>
     
 </head>
 
 <body>
-
     <header>
         <div class="logo-container">
-            <img class="logo" src="logo.png">
-        <h1>Jaivac Fabricators</h1>
+          <img class="logo" src="logo.png" alt="Logo">
+          <h1>Jaivac Fabricators</h1>
         </div>
         <div class="text-container">
-            <ul>
+          <ul>
             <li><a href="/index.html">Home</a></li>
-            <li><a href="/about_us.html">About Us</a></li>
-            <li><a href="/ourservices.html">Our Services</a></li>
-            <li><a href="/portifolio.html">Portfolio</a></li>
-            <li><a href="/contact_us.html">Contact Us</a></li>
+            <li><a href="#about_us">About Us</a></li>
+            <li><a href="#ourservices">Our Services</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#contact_us">Contact Us</a></li>
             <li class="dropdown">
-                <a href="#" class="dropbtn">Our Products</a>
-                <div class="dropdown-content">
-                    <a href="/doors.html">Doors</a>
-                    <a href="/windows.html">Windows</a>
-                    <a href="/gates.html">Gates</a>
-                    <a href="/beds.html">Beds</a>
-                    <a href="/staircase.html">Staircase</a>
-                    <a href="/curtain.html">Curtain Rod</a>
-                    <a href="/chairs.html">Chairs</a>
-                </div>
+              <a href="#products" class="dropbtn">Our Products</a>
+              <div class="dropdown-content">
+                <a href="/doors.html">Doors</a>
+                <a href="/windows.html">Windows</a>
+                <a href="/gates.html">Gates</a>
+                <a href="/beds.html">Beds</a>
+                <a href="/staircase.html">Staircase</a>
+                <a href="/curtain.html">Curtain Rod</a>
+                <a href="/chairs.html">Chairs</a>
+              </div>
             </li>
-           </ul>
-            
+          </ul>
         </div>
-    </header>
+        <div class="menu-bars" onclick="toggleSidebar()">
+          <i class="fas fa-bars"></i>
+        </div>
+      </header>
+      <div class="sidebar" id="sidebar">
+        <a href="/index.html">Home</a>
+        <a href="#about_us">About Us</a>
+        <a href="#ourservices">Our Services</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact_us">Contact Us</a>
+        <div class="dropdown">
+          <a href="#products" class="dropbtn">Our Products</a>
+          <div class="dropdown-content">
+            <a href="/doors.html">Doors</a>
+            <a href="/windows.html">Windows</a>
+            <a href="/gates.html">Gates</a>
+            <a href="/beds.html">Beds</a>
+            <a href="/staircase.html">Staircase</a>
+            <a href="/curtain.html">Curtain Rod</a>
+            <a href="/chairs.html">Chairs</a>
+          </div>
+        </div>
+        <div class="sidebar-close" onclick="closeSidebar()">
+          <i class="fas fa-times"></i>
+        </div>
+      </div>
+      <script>
+        function toggleSidebar() {
+          var sidebar = document.getElementById('sidebar');
+          if (sidebar.style.width === '250px') {
+            sidebar.style.width = '0';
+          } else {
+            sidebar.style.width = '250px';
+          }
+        }
+    
+        function closeSidebar() {
+          document.getElementById('sidebar').style.width = '0';
+        }
+      </script>
+    <!--small screens-->
 
     <nav>
         
     </nav>
-    <div class="slideshow-container">
+
+    <!--home slides-->
+    <div class="slideshow-container fade-in">
         <div class="my-slides slideOverVertical">
             <img src="my.jpg" alt="my Photo" style="width:100%">
             <div class="text-div">
@@ -520,7 +145,7 @@
                     Your vision, our precision.
                 </p>
             <button class="button"><a href="about us.html">More About us</a></button>
-                
+            </div>    
         </div>
     </div>
     
@@ -543,12 +168,12 @@
                 <div class="text-div">
                     <div class="content">
                         <h2>Redefining Fabrication Excellence</h2></div>
-                    <div class="description">
+                        <div class="description">
                         <p>Crafting metal marvels. Welding excellence meets innovation.
                              Explore artistry, ignite possibilities. Your vision, our precision.</p>
-                    </div>
+                        </div>
                         <button class="button"><a href="contact us.html">Contact</a></button>
-                       </div>
+                    </div>
             </div>
         </div>
         
@@ -558,10 +183,11 @@
                 <div class="text-div">
                     <div class="content">
                         <h2>Sculpting Simplicity, Crafting Excellence</h2>
-                    </div>
-                    <div class="description">
+                        </div>
+                        <div class="description">
                         <p>Jaivac Fabricators redefines fabrication. Simplifying needs, turning complexity into elegance. Bringing visions to life with precision and ease. Making fabrication simple, ensuring seamless journey and product.</p>
                        </div>
+                </div>       
             </div>
         </div>
         
@@ -575,8 +201,12 @@
                         <p>Jaivac Fabricators: where welds are artistry. Creativity and precision converge to craft metal marvels. Committed to excellence, opening doors to endless possibilities. Redefining fabrication where innovation knows no bounds.</p>
                        </div>
                     </div>
+                </div>
             </div>
         </div>
+
+        <!--smallfooter-->
+
         <footer class="footer-1">
             <p>Are you looking for high quality welders <br>and fabricators for your project ?</p>
         </footer>
@@ -616,8 +246,162 @@
             Your satisfaction is our priority, and our seasoned team ensures timely, precise, and creative solutions.
             Elevate your projects with Jaivac - Where Craftsmanship Meets Innovation.
         </p>
+    </div>
     </section>
+
+
+            <!-- About page content -->
+
+    <h2 class="headings">About Us</h2>
+    <section id="about_us">
+    <div class="alamy">
+        <img class="img" src="alamy.png"><br>
+        <div class="alamy-container">
+            <h3 style="text-align: center;">Jaivac Fabricators:</h3>  
+                <li>Experts in welding and fabrication.</li> <li>Skilled team, latest technology, committed to transforming your vision into reality.</li>
+        </div>
+    </div>
+    </section>
+    <section>
+        <h2 class="h2">Who are we</h2>
+        <div class="image-container">
+            <div class="image-box">
+                <img src="silver.jpg" alt="our Mission">
+                <p><strong>Our Mission:</strong><br>To deliver superior welding and fabrication solutions that exceed client expectations, ensuring lasting relationships built on trust and satisfaction.</p>
+            </div>
+            <div class="image-box">
+                <img src="shutter.png" alt="Our Vision">
+                <p><strong>Our Vision:</strong><br>Your vision is our inspiration. We strive to innovate and create, pushing the boundaries of welding excellence.</p>
+            </div>
+            <div class="image-box">
+                <img src="dining.jpg" alt="Our Motto">
+                <p><strong>Our Motto:</strong><br>Commitment to quality and precision – transforming metal into masterpieces with every weld.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="why-choose">
+        <h2><strong>Why Choose Jaivac Fabricators?</strong></h2>
+        <ul>
+            <li><strong> Years of Expertise:</strong> Benefit from our extensive experience in the welding industry.</li>
+            <li><strong>Skilled Professionals:</strong> Our team consists of highly trained and certified welders.</li>
+            <li><strong>Quality Assurance: </strong>We adhere to strict quality standards for every project we undertake.</li>
+            <li><strong>Custom Solutions: </strong>Tailored welding services to meet your unique requirements.</li>
+            <li><strong>Timely Delivery: </strong>We understand the importance of deadlines and strive for on-time completion.</li>
+        </ul>
+    </div>
+
+                <!--Our services section-->
+ <h2 class="headings">Our Services</h2>
+<section id="ourservices">
+    <div id="service">
+        <img  src="custom.jpg" />
+        <h3>Custom Metal Fabrication</h3>
+        <p>Transforming metal into personalized solutions that fit your unique needs. Our skilled welders and fabricators ensure top-notch quality in every project.</p>
+    </div>
+
+    <div class="service">
+        <img  src="stact.jpg" />
+        <h3>Structural Welding</h3>
+        <p>Providing structural welding services for diverse applications, including construction projects and industrial facilities. Our expertise ensures the strength and stability of structures.</p>
+    </div>
+
+    <div class="service">
+        <h3>On-Site Welding</h3>
+        <p>Bringing welding services directly to your location. Our on-site welding team is equipped to handle various tasks, ensuring convenience and efficiency for our clients.</p>
+    </div>
+
+    <div class="service">
+        <h3>Metal Repairs and Maintenance</h3>
+        <p>Specializing in the repair and maintenance of metal structures and equipment. Trust us to keep your investments in optimal condition.</p>
+    </div>
+
+</section>
+
+            <!--Contact Us-->
+
+<h2 class="headings">Contact Us</h2>
+
+<section id="contact_us">
+    <div class="info">
+    <h2>Business Information;-</h2>
+    <p><img class="icon" src="adress.png"><strong>Address:</strong> 11736813 Kiritiri.</p>
+    <p><img class="icon" src="call.png"><strong>Phone Number:</strong> +254721111111</p>
+    <p><img class="icon" src="mail.png"><strong>Email:</strong><a href="a href="mail to: jaivacfabricators.ac.ke>jaivacfabricators.ac.ke</a></p>
+    <p><img class="icon" src="time.png"><strong>Working Days:</strong> Monday - Saturday | 9am to 5pm</p>
+    <img class="icon" src="what.png"><a href="https://wa.me/+254783845747" target="_blank">Chat on WhatsApp</a>
+    </div>
+
+<div class="contact-container">
+    <h2>Contact Jaivac Fabricators</h2>
+    <form class="contact-form" id="contactForm" onsubmit="return validateForm()">
+        <label for="name"><strong>Your Name:</strong></label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email"><strong>Your Email:</strong></label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="phoneNumber"><strong>Your Phone Number:</strong></label>
+        <input type="tel" id="phoneNumber" name="phoneNumber" required>
+
+        <label for="message"><strong>Your Message:</strong></label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+
+        <button type="submit">Submit</button>
+    </form>
 </div>
+</section>
+
+                    <!-- Products -->
+<h2 class="headings">Our Products</h2>
+<section id="products">
+    <div class="product-container">
+      <div class="product">
+        <img src="door4.png.jpg" alt="Doors">
+        <h3> <i class="fas fa-door-closed"></i>Doors</h3>
+        <p>Explore our collection of high-quality doors designed for durability and style.</p>
+        <a href="/doors.html" class="btn">View Doors</a>
+      </div>
+      <div class="product">
+        <img src="win3.png.jpg" alt="Windows">
+        <h3><i class="fas fa-window-maximize"></i> Windows</h3>
+        <p>Discover our range of energy-efficient and beautifully crafted windows.</p>
+        <a href="/windows.html" class="btn">View Windows</a>
+      </div>
+      <div class="product">
+        <img src="my.jpg" alt="Gates">
+        <h3><i class="fas fa-door-open"></i> Gates</h3>
+        <p>Secure your property with our sturdy and aesthetically pleasing gate designs.</p>
+        <a href="/gates.html" class="btn">View Gates</a>
+      </div>
+      <div class="product">
+        <img src="decker.png.jpg" alt="Beds">
+        <h3><i class="fas fa-bed"></i> Beds</h3>
+        <p>Elevate your sleeping experience with our handcrafted and stylish bed frames.</p>
+        <a href="/beds.html" class="btn">View Beds</a>
+      </div>
+      <div class="product">
+        <img src="staircase1.jpg" alt="Staircases">
+        <h3>Staircases</h3>
+        <p>Discover our range of custom-made staircases for both residential and commercial spaces.</p>
+        <a href="/staircase.html" class="btn">View Staircases</a>
+      </div>
+      <div class="product">
+        <img src="purpose.png" alt="Curtain Rods">
+        <h3> Curtain Rods</h3>
+        <p>Enhance your living spaces with our stylish and durable curtain rod collection.</p>
+        <a href="/curtain.html" class="btn">View Curtain Rods</a>
+      </div>
+      <div class="product">
+        <img src="stact.jpg" alt="Chairs">
+        <h3> <i class="fas fa-chair"></i>Chairs</h3>
+        <p>Explore our range of comfortable and elegantly designed chairs for various settings.</p>
+        <a href="/chairs.html" class="btn">View Chairs</a>
+      </div>
+    </div>
+  </section>
+
+<!-- footer -->
     <footer>
         <p class="p">Contact us today to discuss your welding and fabrication needs. We are here to turn your ideas into reality.</p>
         <div class="footer-content">
